@@ -1,0 +1,17 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Mykola Lisivka
+	email = mykola.lisivka@gmail.com
+# Please adapt and uncomment the following lines:
+#	name = Mykola Lisivka
+#	email = mykola.lisivka@gmail.com
+[core]
+	excludesfile = /Users/mlisivka/.gitignore
+	editor = nvim
+
+[mergetool "nvim"] # define command which will be used when "nvim" is set as a merge tool
+  cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+[merge] # set "nvim" as tool for merging
+  tool = nvim
+[mergetool] # automatically launch merge tool without displaying a prompt
+  prompt = false
