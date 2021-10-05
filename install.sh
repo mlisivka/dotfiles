@@ -19,5 +19,5 @@ ln -sf "$(pwd)/.gitignore" ~/.gitignore
 ln -sf "$(pwd)/.gitconfig" ~/.gitconfig
 ln -sf "$(pwd)/.rgignore" ~/.rgignore
 ln -sf "$(pwd)/.vimrc" ~/.vimrc
-# ln -sf "$(pwd)/.vimrc_background" ~/.vimrc_background
+ln -sf "$(pwd)/.vimrc_background" ~/.vimrc_background
 ln -sf "$(pwd)/.zshrc" ~/.zshrc
