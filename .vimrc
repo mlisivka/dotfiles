@@ -8,7 +8,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'easymotion/vim-easymotion'
 "Ruby
 Plug 'vim-ruby/vim-ruby'
-" Plug 'danchoi/ri.vim'
 Plug 'tpope/vim-rails'
 Plug 'ecomba/vim-ruby-refactoring'
 " HTML
@@ -17,7 +16,7 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript'] }
 Plug 'othree/html5.vim', { 'for': ['html', 'javascript'] }
 Plug 'tpope/vim-haml', { 'for': 'haml'}
 " Linter
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-commentary'
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -30,8 +29,24 @@ Plug 'antlypls/vim-colors-codeschool'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Code snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
+
+" LSP
+Plug 'neovim/nvim-lspconfig'
+
+" Auto-completion
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/nvim-cmp'
+
+" Code snippets
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'rafamadriz/friendly-snippets'
+
+" LSP + fzf
+Plug 'ojroques/nvim-lspfuzzy'
 
 call plug#end()
 
@@ -73,10 +88,6 @@ nmap <Leader>p "+p
 nmap <Leader>P "+P
 nmap <Leader>yy "+yy
 
-" _ is a black hole register (/dev/null)
-" vnoremap p "_dP
-
-
 " Map ctrl-movement keys to window switching
 map <C-k> <C-w><Up>
 map <C-j> <C-w><Down>
@@ -85,10 +96,10 @@ map <C-h> <C-w><Left>
 nmap <Leader>w :w<CR>
 
 " tabs & buffers
-" map <leader>o :tabnew<CR>
-" map <leader>[ :tabprev<CR>
-" map <leader>] :tabnext<CR>
 " map <leader>W :bd<CR>
+nnoremap <C-t> :tabnew<CR>
+nnoremap <C-]> gt
+nnoremap <C-[> gT
 
 " Prev/Next buffer
 map <F1> :bp<CR>
@@ -110,19 +121,6 @@ nmap <Leader>pry Orequire 'pry'; binding.pry<Esc>
 inoremap <C-e> <C-o>$
 " Jump to start of the line in Insert mode
 inoremap <C-i> <C-o>I
-
-" Reindent
-nmap <leader>ai mzgg=G`z
-
-" ri.vim
-" ===============
-" horizontal split
-" nnoremap  <leader>ri :call ri#OpenSearchPrompt(0)<cr>
-" vertical split
-" nnoremap  <leader>RI :call ri#OpenSearchPrompt(1)<cr>
-" keyword lookup
-" nnoremap  <leader>RK :call ri#LookupNameUnderCursor()<cr>
-" ===============
 
 " Zoom / Restore window.
 function! s:ZoomToggle() abort
@@ -167,9 +165,6 @@ set sidescrolloff=5
 set wrap
 set cursorline
 
-" Open NerdTree aftre start vim
-" autocmd VimEnter * NERDTree
-
 " Auto remove trailing space before saving
 autocmd FileType ruby autocmd BufWritePre <buffer> %s/\s\+$//e
 
@@ -187,19 +182,6 @@ map K <Nop>
 " vim-ruby
 let g:ruby_indent_block_style = 'do'
 
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_ruby_checkers = ['mri']
-let g:syntastic_ruby_rubocop_exe = 'bundle exec rubocop'
-let g:syntastic_enable_ruby_checker = 1
-
 " air-line
 let g:airline_theme='dark'
 let g:airline_powerline_fonts = 1
@@ -213,6 +195,7 @@ let g:airline_symbols.whitespace = 'Ξ'
 
 
 " Fzf
+lua require('lspfuzzy').setup {}
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
 " Rg command of fzf
 command! -bang -nargs=* Rg 
@@ -221,7 +204,19 @@ command! -bang -nargs=* Rg
 nnoremap <silent><leader>o :Files<CR>
 nnoremap <silent><Leader>g :Rg<CR>
 
-" UltiSnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+imap <silent><expr> <Tab> '<Plug>luasnip-expand-or-jump'
+inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+
+snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
+snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
+
+" imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+" smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+
+" Run rubocop -a
+function! RubocopAutocorrect()
+  execute "!rubocop -a " . bufname("%")
+endfunction
+map <silent> <Leader>cop :call RubocopAutocorrect()<cr>
+
+set noswapfile

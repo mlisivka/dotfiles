@@ -1,2 +1,4 @@
-tags
+*.ruby-version
 *.DS_Store
+tags
+config/definitions.rb

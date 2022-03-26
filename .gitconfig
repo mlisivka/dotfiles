@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
 	name = Mykola Lisivka
-	email = mykola.lisivka@gmail.com
+	email = mykola.l@matic.com
 # Please adapt and uncomment the following lines:
 #	name = Mykola Lisivka
 #	email = mykola.lisivka@gmail.com
@@ -15,3 +15,5 @@
   tool = nvim
 [mergetool] # automatically launch merge tool without displaying a prompt
   prompt = false
+[pull]
+	rebase = false

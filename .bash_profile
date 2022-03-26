@@ -2,13 +2,11 @@
 export GEM_HOME=$HOME/.gem
 PATH=$PATH:$HOME/.gem/bin
 
-# https://github.com/rbenv/rbenv/issues/879#issuecomment-289615028
+eval "$(rbenv init - zsh)"
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-
-# rbenv
-eval "$(rbenv init -)"
+# https://github.com/rbenv/rbenv/issues/879#issuecomment-289615028
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
 
 # Fzf
 export FZF_DEFAULT_COMMAND='rg --files'
@@ -25,10 +23,14 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 alias ggp!='git push origin "$(git_current_branch)" -f'
 alias gph='git push heroku "$(git_current_branch)"'
 
-alias ctgs='ctags -R --exclude=node_modules --exclude=vendor --exclude=log --exclude=tmp'
+# alias ctgs='ctags -R --exclude=node_modules --exclude=vendor --exclude=log --exclude=tmp'
+alias cop='bundle exec rubocop --parallel'
+alias rspec='bundle exec rspec'
 
 # Kubernetes
 KUBE_EDITOR='nvim'
+
+EDITOR='nvim'
 
 #https://askubuntu.com/questions/441744/pressing-enter-produces-m-instead-of-a-newline
 #stty icrnl
