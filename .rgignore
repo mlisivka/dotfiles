@@ -3,3 +3,4 @@ node_modules
 vendor
 spec/fixtures
 app/javascript/legacy
+package-lock.json
