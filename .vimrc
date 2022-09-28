@@ -165,10 +165,10 @@ set cursorline
 " Auto remove trailing space before saving
 autocmd FileType ruby autocmd BufWritePre <buffer> %s/\s\+$//e
 
-" mark line has more than 100 characters
-set colorcolumn=100
+" mark line has more than 120 characters
+set colorcolumn=120
 " highlight ColorColumn ctermbg=236 guibg=lightgrey
-" au BufRead,BufNewFile * syntax match ErrorMsg /\%>100v.\+/
+" au BufRead,BufNewFile * syntax match ErrorMsg /\%>120v.\+/
 
 " Disable Ex mode
 map Q <Nop>
@@ -220,3 +220,7 @@ set noswapfile
 
 " copy current file name to system clipboard (Linux version)
 nnoremap <leader>cp :let @+=expand("%")<CR>
+
+nnoremap <leader>ml :s /{\s\?\(.\+\)\s\?}$/do\r\1\rend/<CR>==k== <bar> :noh<CR>
+
+nnoremap <leader>di A # rubocop:disable 

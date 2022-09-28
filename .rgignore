@@ -1,6 +1,9 @@
-node_modules
-/public
-vendor
 spec/fixtures
 app/javascript/legacy
+app/assets
+node_modules
 package-lock.json
+public
+vendor
+*.css
+*.scss

@@ -1,4 +1,4 @@
 *.ruby-version
 *.DS_Store
-tags
 config/definitions.rb
+node_modules

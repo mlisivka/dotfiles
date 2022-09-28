@@ -112,3 +112,11 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.bash_profile
 eval 
 TWILIO_AC_ZSH_SETUP_PATH=/Users/mlisivka/.twilio-cli/autocomplete/zsh_setup && test -f $TWILIO_AC_ZSH_SETUP_PATH && source $TWILIO_AC_ZSH_SETUP_PATH; # twilio autocomplete setup
+
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi

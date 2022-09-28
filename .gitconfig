@@ -1,10 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
 	name = Mykola Lisivka
-	email = mykola.l@matic.com
-# Please adapt and uncomment the following lines:
-#	name = Mykola Lisivka
-#	email = mykola.lisivka@gmail.com
+	email = 12681237+mlisivka@users.noreply.github.com
 [core]
 	excludesfile = /Users/mlisivka/.gitignore
 	editor = nvim
