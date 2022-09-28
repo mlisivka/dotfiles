@@ -25,7 +25,7 @@ alias gph='git push heroku "$(git_current_branch)"'
 
 # alias ctgs='ctags -R --exclude=node_modules --exclude=vendor --exclude=log --exclude=tmp'
 alias cop='bundle exec rubocop --parallel'
-alias rspec='bundle exec rspec'
+# alias rspec='bundle exec rspec'
 
 # Kubernetes
 KUBE_EDITOR='nvim'

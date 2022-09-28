@@ -217,3 +217,6 @@ endfunction
 map <silent> <Leader>cop :call RubocopAutocorrect()<cr>
 
 set noswapfile
+
+" copy current file name to system clipboard (Linux version)
+nnoremap <leader>cp :let @+=expand("%")<CR>
