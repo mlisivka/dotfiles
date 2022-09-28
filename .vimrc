@@ -11,9 +11,9 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'ecomba/vim-ruby-refactoring'
 " HTML
-Plug 'gregsexton/MatchTag', { 'for': ['html', 'javascript'] }
-Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript'] }
-Plug 'othree/html5.vim', { 'for': ['html', 'javascript'] }
+Plug 'gregsexton/MatchTag', { 'for': ['html', 'javascript', 'javascriptreact'] }
+Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript', 'javascriptreact'] }
+Plug 'othree/html5.vim', { 'for': ['html', 'javascript', 'javascriptreact'] }
 Plug 'tpope/vim-haml', { 'for': 'haml'}
 " Linter
 " Plug 'vim-syntastic/syntastic'
@@ -28,9 +28,6 @@ Plug 'antlypls/vim-colors-codeschool'
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Code snippets
-" Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
@@ -89,10 +86,10 @@ nmap <Leader>P "+P
 nmap <Leader>yy "+yy
 
 " Map ctrl-movement keys to window switching
-map <C-k> <C-w><Up>
-map <C-j> <C-w><Down>
-map <C-l> <C-w><Right>
-map <C-h> <C-w><Left>
+nmap <C-k> <C-w><Up>
+nmap <C-j> <C-w><Down>
+nmap <C-l> <C-w><Right>
+nmap <C-h> <C-w><Left>
 nmap <Leader>w :w<CR>
 
 " tabs & buffers
@@ -195,7 +192,6 @@ let g:airline_symbols.whitespace = 'Ξ'
 
 
 " Fzf
-lua require('lspfuzzy').setup {}
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
 " Rg command of fzf
 command! -bang -nargs=* Rg 
@@ -204,6 +200,7 @@ command! -bang -nargs=* Rg
 nnoremap <silent><leader>o :Files<CR>
 nnoremap <silent><Leader>g :Rg<CR>
 
+lua require('lspfuzzy').setup {}
 imap <silent><expr> <Tab> '<Plug>luasnip-expand-or-jump'
 inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
 

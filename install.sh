@@ -10,9 +10,11 @@ if [ ! -d ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k ]; then
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 fi
 if [ ! -d ~/.config/enhance-rails-intellisense-in-solargraph ]; then
-  # To update: git -C ~/.config/enhance-rails-intellisense-in-solargraph pull
   # Clone to the project: ln -s ~/.config/enhance-rails-intellisense-in-solargraph/rails.rb <project_root>/config/definitions.rb
   git clone https://gist.github.com/castwide/28b349566a223dfb439a337aea29713e ~/.config/enhance-rails-intellisense-in-solargraph
+else
+  # update
+  git -C ~/.config/enhance-rails-intellisense-in-solargraph pull
 fi
 if [ ! -d $HOME/.rbenv/plugins/rbenv-gemset ]; then
   git clone git://github.com/jf/rbenv-gemset.git $HOME/.rbenv/plugins/rbenv-gemset

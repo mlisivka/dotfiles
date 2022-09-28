@@ -1,0 +1,45 @@
+! 2021-07-30 https://www.youtube.com
+www.youtube.com##:xpath(//ytd-sentiment-bar-renderer[//div[@id='like-bar']])
+! www.youtube.com###secondary div#related
+www.youtube.com##:xpath(//div[@id='top-level-buttons-computed']//ytd-toggle-button-renderer/a/yt-formatted-string)
+www.youtube.com##.ytp-show-tiles.videowall-endscreen.ytp-player-content
+www.youtube.com##.ytp-ce-element
+! Рекомендації
+www.youtube.com##ytd-browse[page-subtype='home'] #primary
+www.youtube.com##ytd-browse[page-subtype='explore'][role='main'] #primary
+! www.youtube.com##ytd-browse:not([page-subtype]) #primary
+! Кількість переглядів
+www.youtube.com##:xpath(//div[@id='dismissible']//div[@id='metadata-line']/span[1])
+
+! 2021-07-31 https://www.facebook.com
+www.facebook.com##:xpath(//div[contains(@data-pagelet, 'FeedUnit')][.//span[contains(.,'Люди, яких ви можете знати')]])
+www.facebook.com##:xpath(//div[@role='feed']/div[.//span[contains(.,'Рекомендації для вас')]])
+www.facebook.com##:xpath(//div[@role='feed']/div[.//span[contains(.,'Люди, яких ви можете знати')]])
+www.facebook.com##:xpath(//div[@role='feed']/div[.//span[contains(.,'Реклама')]])
+www.facebook.com##:xpath(//div[@role="complementary"]//div/span[.//span[contains(.,'Реклама')]])
+www.facebook.com##:xpath(//div[@aria-label="Розповіді"])
+
+! 2021-08-17 https://habr.com
+habr.com##div.tm-page__sidebar
+
+! 2021-08-20 https://habr.com
+habr.com##.tm-page-article__additional-blocks > .tm-block_spacing-around.tm-block
+
+! 2021-10-25 https://trade.aliexpress.ru
+trade.aliexpress.ru###J_xiaomi_dialog
+
+! 2021-11-03 https://www.youtube.com
+www.youtube.com###newness-dot
+
+! Feed in LinkedIn
+www.linkedin.com##:xpath(html[//head/title[.='Feed | LinkedIn']]//main[@id='main'])
+
+! 2021-12-20 https://www.youtube.com
+www.youtube.com###info > #info-text > #count > ytd-video-view-count-renderer
+
+! 2022-01-03 https://applecons.com.ua
+applecons.com.ua##:xpath(//span[starts-with(@id, "s")])
+
+! 2022-03-07 https://www.youtube.com
+www.youtube.com##:xpath(//ytd-guide-entry-renderer[.//yt-formatted-string[.="YouTube Shorts"]])
+

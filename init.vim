@@ -35,8 +35,8 @@ lua <<EOF
       end,
     },
     mapping = {
-      ['<C-j>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-      ['<C-k>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+      ['<C-j>'] = cmp.mapping.select_next_item(),
+      ['<C-k>'] = cmp.mapping.select_prev_item(),
       ['<C-u>'] = cmp.mapping.scroll_docs(-4),
       ['<C-d>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
@@ -84,12 +84,15 @@ lua <<EOF
     },
   })
 
-  -- Setup lspconfig.
-  require('lspconfig').solargraph.setup{
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-  }
-
   -- require("luasnip/loaders/from_vscode").load({ paths = { "~/.vim/plugged/friendly-snippets/" } })
   -- require("luasnip/loaders/from_vscode").load()
   require("luasnip/loaders/from_vscode").lazy_load()
+
+
+  -- Setup lspconfig.
+  local nvim_lsp = require('lspconfig')
+  nvim_lsp.tsserver.setup{}
+  nvim_lsp.solargraph.setup{
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  }
 EOF
