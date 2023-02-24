@@ -34,8 +34,7 @@ EDITOR='nvim'
 
 #https://askubuntu.com/questions/441744/pressing-enter-produces-m-instead-of-a-newline
 #stty icrnl
-NVM_HOME=$(brew --prefix nvm)
 eval "$(rbenv init -)"
-[ -s "$NVM_HOME/nvm.sh" ] && \. "$NVM_HOME/nvm.sh"
 eval "$(direnv hook bash)"
 PATH="$(brew --prefix postgresql@12)/bin:$PATH"
+PATH=$(pyenv root)/shims:$PATH
