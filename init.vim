@@ -6,7 +6,7 @@ nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
 nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <leader>ai <cmd>lua vim.lsp.buf.formatting()<CR>
+nnoremap <leader>ai <cmd>lua vim.lsp.buf.format { async = true }<CR>
 nnoremap <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
 " nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
 " nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
@@ -40,7 +40,7 @@ lua <<EOF
       ['<C-u>'] = cmp.mapping.scroll_docs(-4),
       ['<C-d>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
-      ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+      -- ['<Tab>'] = cmp.mapping.confirm({ select = true }),
     },
     sources = {
       { name = 'nvim_lsp' },
@@ -84,15 +84,15 @@ lua <<EOF
     },
   })
 
-  -- require("luasnip/loaders/from_vscode").load({ paths = { "~/.vim/plugged/friendly-snippets/" } })
-  -- require("luasnip/loaders/from_vscode").load()
-  require("luasnip/loaders/from_vscode").lazy_load()
-
+  require'luasnip'.filetype_extend("ruby", {"rails"})
+  require("luasnip/loaders/from_vscode").lazy_load({ paths = { "~/.vim/plugged/friendly-snippets/" } })
+  require("luasnip/loaders/from_vscode").lazy_load({ paths = { "~/.vim/plugged/friendly-snippets/snippets/javascript" } })
+  -- require("luasnip/loaders/from_vscode").lazy_load({ paths = { "~/.vim/plugged/friendly-snippets/snippets/javascript/vscode-react.json" } })
 
   -- Setup lspconfig.
   local nvim_lsp = require('lspconfig')
   nvim_lsp.tsserver.setup{}
   nvim_lsp.solargraph.setup{
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
   }
 EOF

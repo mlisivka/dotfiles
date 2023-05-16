@@ -1,5 +1,8 @@
 # This is Git's per-user configuration file.
 [user]
+#	name = Mykola Lisivka
+#	email = mykola.l@matic.com
+# Please adapt and uncomment the following lines:
 	name = Mykola Lisivka
 	email = 12681237+mlisivka@users.noreply.github.com
 [core]
@@ -20,3 +23,5 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
+[init]
+	defaultBranch = main

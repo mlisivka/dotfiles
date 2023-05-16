@@ -45,6 +45,11 @@ Plug 'rafamadriz/friendly-snippets'
 " LSP + fzf
 Plug 'ojroques/nvim-lspfuzzy'
 
+" File utils like renaming, deleting, sudo write, etc.
+Plug 'tpope/vim-eunuch'
+
+Plug 'andymass/vim-matchup'
+
 call plug#end()
 
 syntax enable
@@ -219,8 +224,11 @@ map <silent> <Leader>cop :call RubocopAutocorrect()<cr>
 set noswapfile
 
 " copy current file name to system clipboard (Linux version)
-nnoremap <leader>cp :let @+=expand("%")<CR>
+nnoremap <leader>cp :let @+=expand("%:.")<CR>
+nnoremap <leader>cP :let @+=expand("%:p")<CR>
 
 nnoremap <leader>ml :s /{\s\?\(.\+\)\s\?}$/do\r\1\rend/<CR>==k== <bar> :noh<CR>
-
 nnoremap <leader>di A # rubocop:disable 
+
+" set react file type for *.js files to load all snippets
+autocmd BufNewFile,BufRead *.js set filetype=javascriptreact
