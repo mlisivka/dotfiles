@@ -5,6 +5,8 @@ brew install zsh
 brew install rbenv
 brew install ripgrep
 brew install neovim
+brew install direnv
+brew install pyenv
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 if [ ! -d ~/.config/base16-shell ]; then
   git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
@@ -28,5 +30,5 @@ if [ ! -d "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim ]; 
 fi
 gem install solargraph
 gem install solargraph-rails --pre
-solargraph download-core
+# solargraph download-core
 sh ./link.sh
