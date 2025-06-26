@@ -82,6 +82,7 @@
     "extensions.experimental.affinity": {
         "vscodevim.vim": 1
     },
+    "extensions.ignoreRecommendations": true,
     "vim.statusBarColorControl": true,
     "vim.statusBarColors.normal": "#005c20",
     "vim.statusBarColors.insert": "#000f5c",
@@ -433,7 +434,6 @@
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
     "terminal.integrated.enableMultiLinePasteWarning": false,
-    "extensions.ignoreRecommendations": true,
     "find-it-faster.general.useTerminalInEditor": true,
     "cursor-retrieval.canAttemptGithubLogin": false,
     "calva.prettyPrintingOptions": {
