@@ -7,6 +7,8 @@ brew install ripgrep
 brew install neovim
 brew install direnv
 brew install pyenv
+# brew install postgresql@16 # for pg gem
+brew install libpq # for pg gem
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 if [ ! -d ~/.config/base16-shell ]; then
   git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
@@ -28,7 +30,8 @@ if [ ! -d "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim ]; 
   sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
          https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 fi
-# gem install solargraph
-# gem install solargraph-rails --pre
-# solargraph download-core
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v1.40.3/install.sh | bash
+nvm install node
+nvm use node
+npm install -g yarn
 sh ./link.sh

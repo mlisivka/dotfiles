@@ -5,6 +5,8 @@ PATH=$PATH:$HOME/.gem/bin
 eval "$(rbenv init - zsh)"
 export PATH="$HOME/.rbenv/bin:$PATH"
 
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
 # Fzf
 export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
