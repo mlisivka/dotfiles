@@ -149,16 +149,20 @@
   {
     "key": "cmd+j",
     "command": "workbench.action.closePanel",
-    "when": "terminalFocus"
+    "when": "view.terminal.visible"
   },
   {
     "key": "enter",
     "command": "-acceptSelectedSuggestion",
     "when": "acceptSuggestionOnEnter && suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && suggestionMakesTextEdit && textInputFocus"
   },
-  // {
-  //   "key": "cmd+w",
-  //   "command": "workbench.action.terminal.killEditor",
-  //   "when": "terminalEditorFocus && terminalFocus && terminalHasBeenCreated && resourceScheme == 'vscode-terminal' || terminalEditorFocus && terminalFocus && terminalProcessSupported && resourceScheme == 'vscode-terminal'"
-  // },
+  {
+    "key": "ctrl+q",
+    "command": "cursorai.action.hideGenerateInTerminal",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalProcessSupported && (arbitrary function)"
+  },
+  {
+    "key": "cmd+i",
+    "command": "composerMode.agent"
+  }
 ]
