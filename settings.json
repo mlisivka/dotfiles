@@ -3,19 +3,24 @@
     "workbench.tree.renderIndentGuides": "always",
     "workbench.colorCustomizations": {
         "tree.indentGuidesStroke": "#008070",
-        "statusBar.background": "#005c20",
-        "statusBar.noFolderBackground": "#005c20",
-        "statusBar.debuggingBackground": "#005c20",
+        "statusBar.background": "#914a84",
+        "statusBar.noFolderBackground": "#914a84",
+        "statusBar.debuggingBackground": "#914a84",
         "statusBar.foreground": "#ffffff",
         "statusBar.debuggingForeground": "#ffffff"
     },
     "workbench.editor.enablePreviewFromQuickOpen": true,
+    "workbench.colorTheme": "Monokai",
+    "workbench.editor.enablePreview": false,
     "editor.cursorSurroundingLines": 8,
-    "json.format.keepLines": true,
     "editor.quickSuggestions": {
         "strings": "on"
     },
     "editor.stickyScroll.enabled": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.minimap.enabled": false,
+    "editor.rename.enablePreview": false,
+    "json.format.keepLines": true,
     "json.schemas": [
         {
             "fileMatch": [
@@ -34,9 +39,14 @@
     },
     "prettier.prettierPath": "~/Documents/workspace/AndonPulse/andon_pulse/frontend/node_modules/prettier",
     "prettier.configPath": "~/Documents/workspace/AndonPulse/andon_pulse/frontend/.prettierrc",
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "rubyLsp.rubyVersionManager": {
         "identifier": "rbenv"
+    },
+    "rubyLsp.featureFlags": {
+        "all": true
+    },
+    "[sql]": {
+        "editor.defaultFormatter": "innoverio.vscode-dbt-power-user"
     },
     "[ruby]": {
         "editor.defaultFormatter": "Shopify.ruby-lsp",
@@ -397,15 +407,9 @@
             ]
         }
     ],
-    "editor.minimap.enabled": false,
-    "workbench.editor.enablePreview": false,
-    "editor.rename.enablePreview": false,
     "javascript.updateImportsOnFileMove.enabled": "always",
     "search.exclude": {
         "**/sorbet": true
-    },
-    "[sql]": {
-        "editor.defaultFormatter": "innoverio.vscode-dbt-power-user"
     },
     "sqlfluff.config": "${workspaceFolder}/../dbt_statistic/.sqlfluff",
     "sqlfluff.executablePath": "${workspaceFolder}/../dbt_statistic/dbt-env/bin/sqlfluff",
@@ -417,17 +421,17 @@
         "--FIX-EVEN-UNPARSABLE"
     ],
     "sqlfluff.format.enabled": true,
-    "explorer.confirmDelete": false,
     "cursor.cpp.disabledLanguages": [
         "plaintext",
         "scminput",
         "clojure"
     ],
     "cursor.cpp.enablePartialAccepts": true,
+    "cursor.composer.shouldAllowCustomModes": true,
+    "cursor.composer.shouldChimeAfterChatFinishes": true,
+    "cursor.diffs.useCharacterLevelDiffs": true,
     "explorer.confirmDragAndDrop": false,
-    "rubyLsp.featureFlags": {
-        "all": true
-    },
+    "explorer.confirmDelete": false,
     "terminal.integrated.enableMultiLinePasteWarning": false,
     "extensions.ignoreRecommendations": true,
     "find-it-faster.general.useTerminalInEditor": true,
@@ -439,12 +443,8 @@
         "maxLength": 50
     },
     "calva.paredit.defaultKeyMap": "strict",
-    "workbench.colorTheme": "Monokai",
     "tailwindCSS.includeLanguages": {
         "plaintext": "html"
     },
-    "cursor.composer.shouldAllowCustomModes": true,
-    "cursor.composer.shouldChimeAfterChatFinishes": true,
-    "cursor.diffs.useCharacterLevelDiffs": true,
     "git.openRepositoryInParentFolders": "never"
 }

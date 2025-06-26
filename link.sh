@@ -12,3 +12,5 @@ ln -sf "$(pwd)/init.vim" ~/.config/nvim/init.vim
 ln -sf "$(pwd)/.vimrc_background" ~/.vimrc_background
 ln -sf "$(pwd)/.zshrc" ~/.zshrc
 ln -sf "$(pwd)/.p10k.zsh" ~/.p10k.zsh
+ln -sf "$(pwd)/keybindings.json" ~/Library/Application\ Support/Cursor/User/keybindings.json
+ln -sf "$(pwd)/settings.json" ~/Library/Application\ Support/Cursor/User/settings.json
