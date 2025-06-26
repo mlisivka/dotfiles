@@ -2,12 +2,12 @@ set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 source ~/.vimrc
 
-nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
-nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <leader>ai <cmd>lua vim.lsp.buf.format { async = true }<CR>
-nnoremap <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
+" nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+" nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
+" nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
+" nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
+" nnoremap <leader>ai <cmd>lua vim.lsp.buf.format { async = true }<CR>
+" nnoremap <leader>rn <cmd>lua vim.lsp.buf.rename()<CR>
 " nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
 " nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 " nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
@@ -43,7 +43,7 @@ lua <<EOF
       -- ['<Tab>'] = cmp.mapping.confirm({ select = true }),
     },
     sources = {
-      { name = 'nvim_lsp' },
+      -- { name = 'nvim_lsp' },
       { name = "treesitter" },
       -- For vsnip user.
       -- { name = 'vsnip' },
@@ -73,7 +73,7 @@ lua <<EOF
           Snippet = "Snippet",
         })[vim_item.kind]
         vim_item.menu = ({
-          nvim_lsp = "[LSP]",
+          -- nvim_lsp = "[LSP]",
           treesitter = "[TreeSitter]",
           luasnip = "[LuaSnip]",
           buffer = "[Buffer]",
@@ -90,9 +90,9 @@ lua <<EOF
   -- require("luasnip/loaders/from_vscode").lazy_load({ paths = { "~/.vim/plugged/friendly-snippets/snippets/javascript/vscode-react.json" } })
 
   -- Setup lspconfig.
-  local nvim_lsp = require('lspconfig')
-  nvim_lsp.tsserver.setup{}
-  nvim_lsp.solargraph.setup{
-    capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-  }
+  -- local nvim_lsp = require('lspconfig')
+  -- nvim_lsp.tsserver.setup{}
+  -- nvim_lsp.solargraph.setup{
+  --   capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+  -- }
 EOF

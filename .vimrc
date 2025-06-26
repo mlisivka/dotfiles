@@ -30,7 +30,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " LSP
-Plug 'neovim/nvim-lspconfig'
+" Plug 'neovim/nvim-lspconfig'
 
 " Auto-completion
 Plug 'hrsh7th/cmp-nvim-lsp'
