@@ -93,6 +93,7 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='nvim'
 fi
+export KUBE_EDITOR=$EDITOR
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -109,8 +110,46 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-source $HOME/.bash_profile
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# For installing gems without sudo
+export GEM_HOME=$HOME/.gem
+PATH=$PATH:$HOME/.gem/bin
+
+eval "$(rbenv init - zsh)"
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+# Fzf
+export FZF_DEFAULT_COMMAND='rg --files'
+export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
+# Bat + fzf
+export BAT_THEME='base16'
+
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+alias ggp!='git push origin "$(git_current_branch)" -f'
+alias gph='git push heroku "$(git_current_branch)"'
+alias rcp='kamal console'
+alias rc='rails c'
+alias hs='hugo server --buildDrafts --noHTTPCache'
+
+eval "$(direnv hook bash)"
+PATH=$(pyenv root)/shims:$PATH
+
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
+
+source $HOME/.bash_profile

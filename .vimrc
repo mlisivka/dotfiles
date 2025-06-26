@@ -232,3 +232,8 @@ nnoremap <leader>di A # rubocop:disable
 
 " set react file type for *.js files to load all snippets
 autocmd BufNewFile,BufRead *.js set filetype=javascriptreact
+
+" for ukrainian layout
+set keymap=ukrainian
+set iminsert=0
+set imsearch=0
