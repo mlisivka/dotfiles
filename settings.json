@@ -3,9 +3,9 @@
     "workbench.tree.renderIndentGuides": "always",
     "workbench.colorCustomizations": {
         "tree.indentGuidesStroke": "#008070",
-        "statusBar.background": "#914a84",
-        "statusBar.noFolderBackground": "#914a84",
-        "statusBar.debuggingBackground": "#914a84",
+        "statusBar.background": "#005c20",
+        "statusBar.noFolderBackground": "#005c20",
+        "statusBar.debuggingBackground": "#005c20",
         "statusBar.foreground": "#ffffff",
         "statusBar.debuggingForeground": "#ffffff"
     },
@@ -427,7 +427,6 @@
         "scminput",
         "clojure"
     ],
-    "cursor.cpp.enablePartialAccepts": true,
     "cursor.composer.shouldAllowCustomModes": true,
     "cursor.composer.shouldChimeAfterChatFinishes": true,
     "cursor.diffs.useCharacterLevelDiffs": true,
@@ -446,5 +445,27 @@
     "tailwindCSS.includeLanguages": {
         "plaintext": "html"
     },
-    "git.openRepositoryInParentFolders": "never"
+    "git.openRepositoryInParentFolders": "never",
+    "cursor.general.globalCursorIgnoreList": [
+        "**/.env",
+        "**/.env.*",
+        "**/credentials.json",
+        "**/credentials.*.json",
+        "**/secret.json",
+        "**/secrets.json",
+        "**/*.key",
+        "**/*.pem",
+        "**/*.pfx",
+        "**/*.p12",
+        "**/*.crt",
+        "**/*.cer",
+        "**/id_rsa",
+        "**/id_dsa",
+        "**/.ssh/id_*",
+        "**/.kamal",
+        "**/master.key"
+    ],
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    }
 }
